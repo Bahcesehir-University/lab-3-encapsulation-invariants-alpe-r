@@ -33,20 +33,24 @@ public:
     // Must enforce the invariant.
     // Throw std::invalid_argument if value < -273.15
     explicit Temperature(double celsius) {
-        // TODO: Validate and set celsius_
+        if (celsius < -273.15){
+            throw invalid_argument("temprature shouldn't be below -273.15 degree"); 
+            
+        }
+        celsius_= celsius;
     }
 
     // Getter: return the temperature in Celsius
     double getCelsius() const {
         // TODO: Implement
-        return 0.0;
+        return celsius_;
     }
 
     // Getter: return the temperature converted to Fahrenheit
     // Formula: F = C * 9/5 + 32
     double getFahrenheit() const {
         // TODO: Implement
-        return 0.0;
+        return celsius_ * 9.0 / 5.0 + 32.0;
     }
 
     // Setter: update the temperature in Celsius
@@ -54,6 +58,10 @@ public:
     // Throw std::invalid_argument if value < -273.15
     void setCelsius(double celsius) {
         // TODO: Implement
+        if (celsius < -273.15){
+            throw invalid_argument("temprature shouldn't be below -273.15 degree");
+        }
+        celsius_ = celsius;
     }
 };
 
