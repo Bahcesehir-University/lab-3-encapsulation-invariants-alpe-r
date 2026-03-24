@@ -86,8 +86,8 @@ public:
             throw invalid_argument("owner name shouldn't be empty");
             
         }
-        if (initialBalance < 0.0){
-            invalid_argument("initial balance cannot be empty");
+        if (initialBalance < 0){
+            throw invalid_argument("initial balance cannot be empty");
         }
         owner_ = owner;
         balance_ = initialBalance;
